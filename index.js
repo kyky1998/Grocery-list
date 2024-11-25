@@ -14,16 +14,24 @@
  * @param {Item[]} items - array of items
  */
 function logNames(items) {
-  // TODO: use `forEach`
+  items.forEach(element => {
+    console.log(element.name)
+    
+  });
 }
 
-/**
- * @param {Item[]} items - array of items
- * @returns {string[]} an array of item names in all uppercase
- */
-function getUppercaseNames(items) {
-  // TODO: use `map`
+function getUppercaseNames(items){
+ 
+const capitalizedWords = items.map(el => el.name.toUpperCase());
+
+return capitalizedWords 
 }
+
+
+
+
+
+
 
 /**
  * @param {Item[]} items - array of items
@@ -32,6 +40,8 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
+  const found = items.find(el => el.id);
+  return found===found
 }
 
 /**
@@ -41,8 +51,16 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
-}
+  for (let i = 0; i < items.length; i++) {
+    
+    if (items[i].name.toLowerCase() === itemName.toLowerCase()) {
+      
+      return items[i].price;
+    }
+ 
 
+}
+}
 /**
  * @param {Item[]} items - array of items
  * @param {string} category
@@ -50,7 +68,16 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  const categoryName = "fruit";
+const fruitItems = items.filter(item => item.category === categoryName);
+
+console.log(fruitItems);
+return fruitItems
+
+
 }
+ 
+
 
 /**
  * @param {Item[]} items - array of items
@@ -58,6 +85,12 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  const totalQuantity = items.reduce((accumulator, item) => {
+    return accumulator + item.quantity;
+  }, 0);
+  
+  console.log(totalQuantity);
+
 }
 
 /**
@@ -66,6 +99,12 @@ function countItems(items) {
  */
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
+  const totalPrice = items.reduce((accumulator, item) => {
+    return accumulator + item.price * item.quantity;
+  }, 0);
+  
+  console.log(totalPrice);
+
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
